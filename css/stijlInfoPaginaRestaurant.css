@@ -1,0 +1,64 @@
+body{
+    background-color: #7C7C7C;
+
+}
+#main{
+    margin: auto;
+    width: 1400px;
+
+
+
+}
+#links{
+    background-color: #CCCCCC;
+    float:left;
+    width: 65%;
+    border-style: solid;
+    border-color: #CCCCCC;
+    border-width: 10px;
+    border-radius:10px;
+
+}
+
+#rechts{
+    background-color: #CCCCCC;
+    float:left;
+    width: 27%;
+    border-style: solid;
+    border-color: #CCCCCC;
+    border-width: 10px;
+    border-radius: 10px;
+    margin-left: 1%;
+
+
+}
+#menu{
+    background-color: #CCCCCC;
+    margin-top:20px;
+}
+#menu li{
+    display:inline;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+#copyright{
+    float: right;
+    margin-top: 10px;
+    text-align: right;
+    background-color: #CCCCCC;
+    width: 100%;
+
+}
+
+#header{
+    background-image: url("http://media.ndtrc.nl/Images/20100909/fca4d986-2d5f-4332-b8b0-c9b4d24ba024.jpg?maxwidth=468&maxheight=351");
+    background-size: 100% 25%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-size: 75px;
+}
