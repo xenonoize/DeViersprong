@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <?php
 require '../../Models/menuItem.php';
+$id = null;
+if (!empty(filter_input(INPUT_GET, 'Id'))) {
+    $id = filter_input(INPUT_GET, 'Id');
+}
+
+if (null == $id) {
+    header("Location: index.php");
+}
+$item = new MenuItem();
 
 if (!empty($_POST)) {
-    $item = new MenuItem();
-
     // keep track validation errors
     $nameError = null;
     $orderError = null;
@@ -19,15 +26,18 @@ if (!empty($_POST)) {
         $nameError = 'Vul een naam in.';
         $valid = false;
     }
-
     if (empty($item->order)) {
-        $item->order = 0;
+        $orderError = 'Vul 0 of een volgorde getal in.';
         $valid = false;
     }
-    // insert data
+    // update data
     if ($valid) {
-        $item->CreateItem($item->name, $item->order);
+        $item->EditItem($id, $item->name, $item->order);
     }
+} else {
+    $data = $item->getItem($id);
+    $item->name = $data['Name'];
+    $item->order = $data['Order'];
 }
 ?>
 <html>
@@ -37,13 +47,13 @@ if (!empty($_POST)) {
     </head>
     <body>
         <h1>
-            Nieuw menu-item
+            Wijzig menu-item: <?php echo!empty($item->name) ? $item->name : ''; ?>
         </h1>
-        <form method="POST" action="Create.php">
+        <form method="POST" action="Edit.php?Id=<?php echo $id ?>">
             <label>
                 Naam:
             </label>
-            <input type="text" name="name" placeholder="Naam">
+            <input type="text" name="name" value="<?php echo!empty($item->name) ? $item->name : ''; ?>" >
             <br>
             <label>
                 <?php if (!empty($nameError)): ?>
@@ -54,9 +64,9 @@ if (!empty($_POST)) {
             <label>
                 Volgorde:
             </label>
-            <input type="number" name="order"  min="0" placeholder="Volgorde getal">
+            <input type="text" name="order"  placeholder="Volgorde getal" value="<?php echo!empty($item->order) ? $item->order : ''; ?>">
             <br>
-            <input type="submit" value="Opslaan" name="submit">
+            <input type="submit" value="Wijzig" name="submit">
         </form>
 
     </body>

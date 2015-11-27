@@ -25,19 +25,17 @@
             </thead>
             <tbody>
                 <?php
-                include '../../Models/database.php';
-                $pdo = Database::connect();
-                $sql = 'SELECT * FROM menuitem ORDER BY Id';
-                foreach ($pdo->query($sql) as $row) {
+                include '../../Models/menuItem.php';
+                $items = new MenuItem();
+                $menuItems = $items->getAllItems();
+                foreach ($menuItems as $item) {
                     echo '<tr>';
-                    // echo '<td>' . $row['Id'] . '</td>';
-                    echo '<td>' . $row['Name'] . '</td>';
-                    echo '<td>' . $row['Order'] . '</td>';
-                    echo '<td><button>Wijzig</button>';
-                    echo '<td><button>Verwijder</button>';
+                    echo '<td>' . $item['Name'] . '</td>';
+                    echo '<td>' . $item['Order'] . '</td>';
+                    echo '<td><a  href="Edit.php?Id=' . $item['Id'] . '">Wijzig</a></td>';
+                    echo '<td><a  href="Delete.php?Id=' . $item['Id'] . '">Verwijder</a></td>';
                     echo '</tr>';
                 }
-                Database::disconnect();
                 ?>
             </tbody>
         </table>
