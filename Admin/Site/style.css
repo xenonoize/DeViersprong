@@ -1,0 +1,87 @@
+body {
+    background-color: lightgrey;
+}
+    
+.box{
+    margin-left: 5%;
+    width: 26%;
+    height: 90%;
+    border: 3px solid;
+    border-color: grey;
+    border-radius:10px;
+    background-position: center;
+    float:left;
+}
+
+p{
+    text-align:center;
+}
+
+
+.copyright{
+    float:left;
+}
+
+.links{
+    
+    width: 26%;
+    height: 90%;
+    background-position: center;
+    float:left;
+}
+
+.box2{
+    margin-top: 80%;
+    width: 100%;
+    font-size: 300%;
+    color: white;
+    text-align: center;
+}
+
+
+
+.bg1{
+    background-image:url("restaurant.jpg");
+}
+
+.bg2{
+    background-image:url("grandcafe.jpg");
+}
+
+.bg3{
+    background-image:url("zalen.jpg");
+}
+
+.opacity{
+    background-color: rgba(211, 211, 211, .7);
+    
+}
+
+.text{
+    color: white;
+    position:relative;
+    font-family:Arial;
+}
+
+div.hover {
+    opacity: 0.6;
+                  transition: opacity .55s ease-in-out;
+                  -moz-transition: opacity .55s ease-in-out;
+                  -webkit-transition: opacity .55s ease-in-out;
+}
+div:hover {
+    opacity: 1.0;
+                  transition: opacity .55s ease-in-out;
+                  -moz-transition: opacity .55s ease-in-out;
+                  -webkit-transition: opacity .55s ease-in-out;
+}
+
+#my-div {
+    background-color: black;
+}
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
