@@ -1,1 +1,4 @@
 /nbproject/private/
+/vendor/**/.git
+/logs/**/.git
+/plugins/**/.git
